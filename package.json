@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/wannabewayno/reactive/issues"
   },
-  "homepage": "https://github.com/wannabewayno/reactive#readme"
+  "homepage": "https://github.com/wannabewayno/reactive#readme",
+  "dependencies": {
+    "react": "^16.13.1"
+  }
 }
