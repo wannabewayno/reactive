@@ -1,0 +1,16 @@
+.link {
+    outline:none;
+    text-decoration: none;
+}
+
+.nude {
+    background-color: transparent;
+    color: white;
+    margin: 0.75rem 0.25rem;
+    padding: 0.25rem 10px;
+}
+
+.nude:hover {
+    border:2px solid white;
+    margin:0.75rem calc(0.25rem - 2px);
+}
