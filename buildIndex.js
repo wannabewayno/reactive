@@ -1,30 +1,14 @@
-// this file reads everything in components and builds up the index.js file 
+// npm run build to execute this file and build index.js
+const findComponents = require('./findComponents');
 const fs = require('fs');
 
-function isComponent(path){
-    const isDirectory = fs.lstatSync(path).isDirectory();
-    const childPaths = fs.readdirSync(path);
-    const containsIndex = childPaths.some(childPath => childPath==='index.jsx'); 
-    return isDirectory && containsIndex
+function createRequireStatements(components){
+    return components.map(component => `module.exports = require('${component}')\n`);
 }
 
-function classifyPaths(paths){
-    const directories = paths.filter(path => !isComponent(path))||[];
-    const components = paths.filter(path => isComponent(path))||[];
-    return { components, directories }
-};
-
-function findComponents(path){
-    const AllComponents = [];
-    childPaths = fs.readdirSync(path);
-    const paths = childPaths.map(childPath => path + '/' + childPath )
-    const { components, directories } = classifyPaths(paths);
-    if (components.length > 0) AllComponents.push(...components);
-    if (directories.length > 0) {
-        AllComponents.push(
-            ...directories.map(directory => findComponents(directory)).flat()
-        )
-    };
-    return AllComponents
-}
-console.log('all components',findComponents('./components'));
+// Writes index.js file to export all components.
+fs.writeFileSync(
+    './index.js',
+    createRequireStatements(findComponents('./components')).join(''),
+    'utf8'
+);
