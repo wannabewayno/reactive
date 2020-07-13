@@ -1,8 +1,8 @@
 {
   "name": "@wannabewayno/reactor",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "react library",
-  "main": "./lib/reactor.js",
+  "main": "./index.js",
   "scripts": {
     "prebuild": "node ./src/buildIndex.js",
     "build": "webpack"
@@ -21,9 +21,18 @@
   },
   "homepage": "https://github.com/wannabewayno/reactive#readme",
   "dependencies": {
-    
+    "react": "^16.13.1",
+    "webpack": "^4.43.0"
   },
   "devDependencies": {
-   
+    "@babel/core": "^7.10.4",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "webpack-cli": "^3.3.12"
   }
 }
