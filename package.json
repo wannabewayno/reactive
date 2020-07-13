@@ -2,10 +2,9 @@
   "name": "@wannabewayno/reactor",
   "version": "0.0.3",
   "description": "react library",
-  "main": "index.js",
+  "main": "./lib/reactor.js",
   "scripts": {
-    "build": "node buildIndex.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node ./src/buildIndex.js && webpack"
   },
   "repository": {
     "type": "git",
@@ -20,7 +19,19 @@
     "url": "https://github.com/wannabewayno/reactive/issues"
   },
   "homepage": "https://github.com/wannabewayno/reactive#readme",
-  "dependencies": {
-    "react": "^16.13.1"
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "lib-react-components": "^1.0.0",
+    "path": "^0.12.7",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
   }
 }
