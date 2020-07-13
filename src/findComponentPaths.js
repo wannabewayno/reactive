@@ -22,7 +22,7 @@ module.exports = function findComponentPaths(path){
     if (components.length > 0) AllComponentPaths.push(...components);
     if (directories.length > 0) {
         AllComponentPaths.push(
-            ...directories.map(directory => findComponents(directory)).flat()
+            ...directories.map(directory => findComponentPaths(directory)).flat()
         )
     };
     return AllComponentPaths

@@ -1,4 +1,5 @@
 const path = require('path');
+var ExtractTextPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: 'production',
