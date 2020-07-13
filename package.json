@@ -4,7 +4,8 @@
   "description": "react library",
   "main": "./lib/reactor.js",
   "scripts": {
-    "build": "node ./src/buildIndex.js && webpack"
+    "prebuild":"node './src/buildIndex.js",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
