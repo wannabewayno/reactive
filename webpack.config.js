@@ -3,28 +3,27 @@ const path = require('path');
 
 
 module.exports = {
-  entry: './src/components/Dropdown/index.jsx',
-  output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: 'index.js',
-    libraryTarget: 'commonjs2'
-  },
-  module: {
-    rules: [
-      {
-        test: /\.jsx$/,
-        include: path.resolve(__dirname, 'src'),
-        exclude: /(node_modules|bower_components|build)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['env']
-          }
-        }
-      },
-    ]
-  },
-  externals: {
-    'react': 'commonjs react' 
-  }
+    mode:'production',
+    entry: './src/components/Dropdown/index.jsx',
+    output: {
+        path: path.resolve('build'),
+        filename: 'index.js',
+        libraryTarget: 'commonjs2'
+    },
+    module: {
+        rules: [
+            {
+                test: /(\.jsx$|\.js$)/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+            },
+            {
+                test: /\.css$/,
+                loader: "style-loader!css-loader"
+            }
+        ]
+    },
+    externals: {
+        react: 'react' 
+    }
 };

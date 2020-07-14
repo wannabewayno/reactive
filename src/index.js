@@ -1,6 +1,6 @@
-import Dropdown from './components/Dropdown';
+import Dropdown from './src/components/Dropdown';
 
 
 export {
-    Dropdown
+Dropdown
 }
