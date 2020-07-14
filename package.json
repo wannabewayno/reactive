@@ -1,6 +1,6 @@
 {
   "name": "@wannabewayno/reactor",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "react library",
   "main": "./build/index.js",
   "scripts": {
@@ -20,9 +20,7 @@
     "url": "https://github.com/wannabewayno/reactive/issues"
   },
   "homepage": "https://github.com/wannabewayno/reactive#readme",
-  "peerDependencies": {
-    
-  },
+  "peerDependencies": {},
   "dependencies": {
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
