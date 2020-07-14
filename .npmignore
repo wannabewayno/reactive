@@ -1,4 +1,6 @@
-/src
+./src
 demo
 .babelrc
 webpack.config.js
+package-lock.json
+.gitignore
