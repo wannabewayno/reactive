@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const Dropdown = ({ name, options, handleliftup, constructValue }) => {
     
-    if(!constructValue) constructValue = value => value;
+    if(!constructValue) constructValue = (options,name) => options.value;
 
     if (!handleliftup){
         handleliftup = () => console.warn(
