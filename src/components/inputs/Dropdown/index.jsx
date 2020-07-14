@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const Dropdown = ({ name, options, handleliftup, constructValue }) => {
     
-    if(!constructValue) constructValue = (options,name) => options.value;
+    if(!constructValue) constructValue = value => value;
 
     if (!handleliftup){
         handleliftup = () => console.warn(
@@ -24,13 +24,12 @@ const Dropdown = ({ name, options, handleliftup, constructValue }) => {
     [dropDownValue])
     
     const handleChange = event => {
-        console.log(event.target.value);
         setdropDownValue(event.target.value)
     }
 
     return (
-        <div className='Dropdown'>
-            <label htmlFor={name.id} >{name.display}</label>
+        <div className='dropdown'>
+            <label htmlFor={name}>{name.display}</label>
             <select name={name.id} value={dropDownValue} onChange={handleChange}>
                 {options.map( option => { 
                     return <option value={constructValue(option,name)} key={uuidv4()}>{option.display}</option>
