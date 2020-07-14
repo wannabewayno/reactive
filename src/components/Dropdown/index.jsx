@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const Dropdown = ({ name, options, handleliftup, constructValue }) => {
     
-    if(!constructValue) constructValue = (options,name) => options.value;
+    if(!constructValue) constructValue = (options,name) => JSON.stringify({ [name]:options.value });
 
     if (!handleliftup){
         handleliftup = () => console.warn(
@@ -29,7 +29,7 @@ const Dropdown = ({ name, options, handleliftup, constructValue }) => {
 
     return (
         <div className='dropdown'>
-            <label htmlFor={name}>{name.display}</label>
+            <label htmlFor={name.id}>{name.display}</label>
             <select name={name.id} value={dropDownValue} onChange={handleChange}>
                 {options.map( option => { 
                     return <option value={constructValue(option,name)} key={uuidv4()}>{option.display}</option>
