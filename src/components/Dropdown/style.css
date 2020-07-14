@@ -1,17 +1,22 @@
-.dropdown, .dropdown select {
+/* .dropdown, .dropdown select {
     width:100%;
-    height:auto;
+    height:fit-content;
+} */
+
+.Dropdown {
+    width:100%;
+    height:fit-content;
 }
 
-.dropdown {
+.Dropdown select {
+    width:95%;
+}
+
+.Dropdown {
     margin:0.5rem 0;
 }
 
-.dropdown select {
-   
-}
-
-.dropdown label {
+.Dropdown label {
     display: block;
     font-size: 90%;
     margin-bottom:2%;
