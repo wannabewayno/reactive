@@ -1,9 +1,9 @@
 // npm run build to execute this file and build index.js
+const path = require('path');
 const findComponentPaths = require('./findComponentPaths');
 const fs = require('fs');
 
 Array.prototype.joinByKey = function(key,selector) {
-    console.log(this);
     return this.map(item => item[key]).join(selector);
 }
 
@@ -30,7 +30,7 @@ function createStatements(componentPaths){
         const componentName = componentPath.slice(componentPath.lastIndexOf('/')+1);
         return {
             componentName,
-            importStatement:`import ${componentName} from '${componentPath}/index.jsx';\n`
+            importStatement:`import ${componentName} from '${'./' + path.relative(__dirname, componentPath+'/index.jsx').replace(/\\/g,'/')}';\n`
         }
     });
 
