@@ -4,7 +4,7 @@ const path = require('path');
 
 module.exports = {
     mode:'production',
-    entry: './src/components/inputs/Dropdown/index.jsx',
+    entry: './src/index.js',
     output: {
         path: path.resolve('build'),
         filename: 'index.js',
