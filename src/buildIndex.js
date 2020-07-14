@@ -30,7 +30,7 @@ function createStatements(componentPaths){
         const componentName = componentPath.slice(componentPath.lastIndexOf('/')+1);
         return {
             componentName,
-            importStatement:`import ${componentName} from '${componentPath}';\n`
+            importStatement:`import ${componentName} from '${componentPath}/index.jsx';\n`
         }
     });
 
