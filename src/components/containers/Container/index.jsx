@@ -1,12 +1,14 @@
-import React, { cloneElement } from 'react';
+import React from 'react';
 import './style.css';
 
 const Container = ({ children, style }) => {
     if(!style) style = {};
 
+    console.log(style);
+
     return (
         <section className='Container' style={style}>
-            {children.map((child,index) => cloneElement(child,{ key:index }))}
+            {children}
         </section>
     )
 }
