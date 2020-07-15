@@ -2,7 +2,8 @@ import React from 'react';
 import './style.css';
 
 const Container = ({ children, style }) => {
-    if(!style) style = {};
+
+    style = { margin:'0 auto', ...style }
 
     console.log(style);
 
