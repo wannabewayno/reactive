@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import './style.css';
-import { useEffect } from 'react';
 
 const Container = ({ children, style }) => {
 
