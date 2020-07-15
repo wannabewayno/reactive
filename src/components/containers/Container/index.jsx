@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './style.css';
+import { useEffect } from 'react';
 
 const Container = ({ children, style }) => {
 
-    style = { margin:'0 auto', ...style }
+    style = { margin:'0 auto', textAlign:'center', ...style }
 
-    console.log(style);
+    useEffect(() => console.log(style),[]);
 
     return (
         <section className='Container' style={style}>

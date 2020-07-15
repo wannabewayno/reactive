@@ -1,7 +1,4 @@
-.Container {
-    text-align: center;  
-    width:90%;
-}
+.Container { width:90%; }
 
 @media (min-width: 576px)  { .Container{ width:85%} }
 @media (min-width: 768px)  { .Container{ width:80%} }
