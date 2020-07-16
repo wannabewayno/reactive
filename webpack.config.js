@@ -24,15 +24,34 @@ module.exports = {
                 loader: "style-loader!css-loader"
             },
             {
-                test:/\.(png|svg|jpg|gif)$/,
-                loader:'file-loader',
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options:{
+                            fallback: "file-loader",
+                            name: "[name][md5:hash].[ext]",
+                            outputPath: 'assets/',
+                            publicPath: '/assets/'
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.(eot|ttf|woff|woff2)$/,
+                use: ["file-loader"],
+            },
+            {
+                test: /\.(pdf|doc|zip)$/,
+                use: ["file-loader"],
             }
         ]
     },
     resolve: {
         alais: {
             'react': path.resolve(__dirname, './node_modules/react'),
-            'react-dom': path.resolve(__dirname, '.node_modules/react-dom')
+            'react-dom': path.resolve(__dirname, '.node_modules/react-dom'),
+            'assets': path.resolve(__dirname, 'assets')
         }
     },
     externals: {
