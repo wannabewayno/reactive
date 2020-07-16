@@ -23,11 +23,7 @@
   "peerDependencies": {
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "uuid": "^8.2.0"
-  },
-  "dependencies": {
-    "prop-types": "^15.7.2",
-    "react": "^16.13.1",
+    "react-dom":"^16.13.1",
     "uuid": "^8.2.0"
   },
   "devDependencies": {
@@ -42,6 +38,9 @@
     "file-loader": "^6.0.0",
     "style-loader": "^1.0.1",
     "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "uuid": "^8.2.0",
+    "react": "^16.13.1",
+    "react-dom":"^16.13.1"
   }
 }
