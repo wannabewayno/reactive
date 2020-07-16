@@ -8,7 +8,7 @@ import './style.css';
  * @param {Object} props.children      - The template component to render the data with matching data keys
  * @param {Object} [props.liftUpState] - a function that lift's up the containers data state and setData attributes.
  */
-const ResultContainer = ({ results, children, liftUpState }) => {
+const ResultContainer = ({ results, children, liftUpState, style }) => {
 
     const errorInfo = 'The ResultContainer should wrap a template component used to render the data it receives'
     if (!children) {
@@ -33,7 +33,7 @@ const ResultContainer = ({ results, children, liftUpState }) => {
    
 
     return (
-        <section className='ResultContainer'>
+        <section className='ResultContainer' style={style}>
             <ul>
                 {resultContainerData.map(dataItem => cloneElement(children,{ data:dataItem, key: dataItem.id }))}
             </ul>
