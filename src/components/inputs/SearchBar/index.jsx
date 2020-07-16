@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './style.css';
 import magnifyingGlass from './magnifying-glass.png';
 
-const SearchBar = ({ name, handleliftup }) => {
+const SearchBar = ({ name, handleliftup, backgroundColor }) => {
     
     if (!handleliftup){
         handleliftup = () => console.warn(
@@ -28,7 +28,7 @@ const SearchBar = ({ name, handleliftup }) => {
     [searchValue])
 
     return(
-        <div className='search-bar'>
+        <div className='search-bar' style={{ backgroundColor }}>
             {name.toDisplay?<label>{name.display}</label>:null}
             <input type='text' value={searchValue} placeholder="search..." onChange={event => handleSearchInput(event)} />
             <div>
