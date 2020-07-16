@@ -15,7 +15,7 @@ export default function iconSize(buttonSize){
         case 'huge':
             return { maxWidth:'60px', maxHeight:'60px' };
         default: 
-            console.error('ButtonSize not recognised! setting to default of tiny (8px)');
+            console.warn('ButtonSize not recognised! setting to default of tiny (8px)');
             return { maxWidth:'8px', maxHeight:'8px' };
     }
 }
