@@ -4,3 +4,6 @@ demo
 webpack.config.js
 package-lock.json
 .gitignore
+.eslintrc
+webpack.local.config.js
+webpack.production.config.js
