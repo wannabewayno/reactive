@@ -22,11 +22,11 @@ const blurMap = {
 
 function getProperty(property, propertyMap, numberCallBack) {
 
-    switch(typeof(shadow)){
+    switch(typeof(property)){
         case'string': // entered a formal syntax
             return propertyMap[property]
         case'number': // user has specified custom blur
-            return numberCallBack(shadow)
+            return numberCallBack(property)
         default: // nothing was specified return a default blur of x-small
             return propertyMap['x-small']
     }
@@ -34,7 +34,7 @@ function getProperty(property, propertyMap, numberCallBack) {
 
 export default function configureGlass(shadow, backgroundColor, blur, style) {
 
-    if (!backgroundColor) backgroundColor = 'rgba(255,255,255,0.5);'
+    if (!backgroundColor) backgroundColor = 'rgba(255,255,255,0.5)'
     const backdropFilter = getProperty(blur,blurMap, blur => `blur(${blur.toString()})`);
     const boxShadow = getProperty(shadow,shadowMap,shadow => shadow);
 
