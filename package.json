@@ -4,7 +4,7 @@
   "description": "react library",
   "main": "./dist/index.js",
   "scripts": {
-    "prepublish": "npm run build && gaa && gcm 'published new version' psh ",
+    "prepublish": "npm run build && git add -A && git commit -m 'published new version' git push ",
     "prebuild": "node ./src/buildIndex.js",
     "build": "webpack"
   },
