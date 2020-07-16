@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './style.css'; 
+import './style.css';
+import magnifyingGlass from './magnifying-glass.png';
 
 const SearchBar = ({ name, handleliftup }) => {
     
@@ -31,7 +32,7 @@ const SearchBar = ({ name, handleliftup }) => {
             {name.toDisplay?<label>{name.display}</label>:null}
             <input type='text' value={searchValue} placeholder="search..." onChange={event => handleSearchInput(event)} />
             <div>
-                <img src="./images/icons/magnifying-glass.png" alt="search-icon"/>
+                <img src={magnifyingGlass} alt="search-icon"/>
             </div>
         </div>
     );

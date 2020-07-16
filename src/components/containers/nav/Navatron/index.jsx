@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import LinkContainer from '../../LinkContainer/index.jsx'
-import './style.css'
+import LinkContainer from '../../LinkContainer/index.jsx';
+import './style.css';
+import arrow from './arrow.png';
 
 /**
  * A jumobtron that takes up the entire screen on mounting
