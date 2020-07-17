@@ -19,6 +19,7 @@ import Dropdown from './components/inputs/Dropdown/index.jsx';
 import Number from './components/inputs/Number/index.jsx';
 import SearchBar from './components/inputs/SearchBar/index.jsx';
 import Employee from './components/listElements/Employee/index.jsx';
+import Arctext from './components/typography/Arctext/index.jsx';
 
 
 export {
@@ -42,5 +43,6 @@ EnvelopeForm,
 Dropdown,
 Number,
 SearchBar,
-Employee
+Employee,
+Arctext
 }
