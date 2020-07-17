@@ -1,6 +1,6 @@
 {
   "name": "@wannabewayno/reactor",
-  "version": "0.2.18",
+  "version": "0.2.19",
   "description": "react library",
   "main": "./dist/index.js",
   "scripts": {
