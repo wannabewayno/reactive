@@ -11,7 +11,6 @@ import FormContainer from './components/containers/FormContainer/index.jsx';
 import FrostedGlass from './components/containers/FrostedGlass/index.jsx';
 import Header from './components/containers/Header/index.jsx';
 import LinkContainer from './components/containers/LinkContainer/index.jsx';
-import ResultContainer from './components/containers/ResultContainer/index.jsx';
 import InlineContainer from './components/containers/flex/InlineContainer/index.jsx';
 import Navatron from './components/containers/nav/Navatron/index.jsx';
 import EnvelopeForm from './components/custom/EnvelopeForm/index.jsx';
@@ -36,7 +35,6 @@ FormContainer,
 FrostedGlass,
 Header,
 LinkContainer,
-ResultContainer,
 InlineContainer,
 Navatron,
 EnvelopeForm,
@@ -45,4 +43,10 @@ Number,
 SearchBar,
 Employee,
 Arctext
+} 
+import useLiftState from './hooks/useLiftState/index.jsx';
+
+
+export {
+useLiftState
 }

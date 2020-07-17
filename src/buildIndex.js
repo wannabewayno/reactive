@@ -52,6 +52,6 @@ function createWriteData(path){
 // Writes index.js file to export all components.
 fs.writeFileSync(
     './src/index.js',
-    createWriteData('./src/components') + createWriteData('./src/hooks'),
+    createWriteData('./src/components') +'\n \n'+ createWriteData('./src/hooks'),
     'utf8'
 );
