@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function useLiftState(){
+export default function useLiftState(){
     const [liftedStates, setLiftedStates] = useState({});
 
     function liftUpState(stateName,state,setState){
