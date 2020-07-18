@@ -7,3 +7,6 @@ package-lock.json
 .eslintrc
 webpack.local.config.js
 webpack.production.config.js
+./src/components
+./src/hooks
+./src/lib
