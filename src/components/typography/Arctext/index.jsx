@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { containerStyle, letterStyle } from './style.js';
-import { getChararcterDimensions, calculateStepAngles, loadValues, destructureUnit, defaultRadius } from './arctextEngine';
+import { getChararcterDimensions, calculateStepAngles, loadValues, defaultRadius } from './arctextEngine';
+import destructureUnit from '../../../lib/destructureUnit';
 
 export default function Arctext({ radius, letterSpacing, wordSpacing, underneath, offset, font, fontSize, color, children }){
     

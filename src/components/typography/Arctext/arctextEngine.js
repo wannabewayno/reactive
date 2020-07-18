@@ -1,3 +1,6 @@
+import useComputedStyle from '../../../hooks/useComputedStyle/index.js'
+import destrucutreUnit from '../../../lib/destructureUnit.js'
+
 export function toRad(degrees) {
     return degrees*Math.PI/180;
 }
@@ -6,11 +9,6 @@ export function toDeg(radians) {
     return radians*180/Math.PI;
 }
 
-export function destructureUnit(unitString){
-    const value = Number(unitString.match(/^[-]?\d+/g));
-    const unit  = (unitString.match(/[a-z]+/g)||[])[0];
-    return { value, unit }
-}
 
 export function defaultRadius(calibratedLetters){
     console.log(calibratedLetters);
@@ -27,12 +25,13 @@ export function getChararcterDimensions(letters, wordSpacing, letterSpacing) {
         let width;
         let height;
         if(letter.letter === ' ') {
-            const fontSize = getComputedStyle(letter.ref.current)['font-size'];
-            width = Number((wordSpacing||fontSize).replace('px','')) * 0.25;
-            height = Number(fontSize.replace('px',''));
+            const fontSize = useComputedStyle(letter.ref,'font-size');
+            wordSpacing = wordSpacing?destrucutreUnit(wordSpacing):undefined;
+            width = (wordSpacing||fontSize).value * 0.25;
+            height = fontSize.value;
         } else {
-            width = Number(getComputedStyle(letter.ref.current)['width'].replace('px','')) +  letterSpacing.value
-            height = Number(getComputedStyle(letter.ref.current)['height'].replace('px',''));
+            width = useComputedStyle(letter.ref,'width').value +  letterSpacing.value;
+            height = useComputedStyle(letter.ref,'height').value;
         };
 
         return { ...letter, width, height }

@@ -42,7 +42,7 @@ Dropdown,
 Number,
 SearchBar,
 Employee,
-Arctext,
+Arctext
 }
  
 import useLiftState from './hooks/useLiftState/index.jsx';
