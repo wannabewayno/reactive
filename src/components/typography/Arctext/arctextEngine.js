@@ -1,4 +1,4 @@
-import useComputedStyle from '../../../hooks/useComputedStyle/index.js'
+import useComputedStyle from '../../../hooks/useComputedStyle/index.jsx'
 import destrucutreUnit from '../../../lib/destructureUnit.js'
 
 export function toRad(degrees) {

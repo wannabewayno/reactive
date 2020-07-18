@@ -45,9 +45,11 @@ Employee,
 Arctext
 }
  
+import useComputedStyle from './hooks/useComputedStyle/index.jsx';
 import useLiftState from './hooks/useLiftState/index.jsx';
 
 
 export {
+useComputedStyle,
 useLiftState
 }
