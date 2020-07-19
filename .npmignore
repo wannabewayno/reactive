@@ -10,3 +10,4 @@ webpack.production.config.js
 ./src/components
 ./src/hooks
 ./src/lib
+./src/events
