@@ -1,18 +1,26 @@
 import React from 'react';
-import './buttons.css';
 import buttonSize from './buttonSize.js';
 import buttonPosition from './buttonPosition.js';
-import iconSize from './iconSize.js';
-import { baseStyle } from './style.js';
+import iconSize from './iconSize';
+import { baseStyle, textStyle ,getSkin } from './styles/style';
+import getIcon from './icons';
+import { onHover, onActive } from '@wannabewayno/reactor';
 
-export default function Button({ size='tiny', position='', icon='', skin='nude-button', type='button'}){
 
-    const buttonCSS = { ...baseStyle,...buttonSize(size), ...buttonPosition(position), ...getSkin(skin) };
+function Button({ size='tiny', position='', color='', icon='', skin='default', type='button', style={}, children}){
+
+    const { normalStyle, hoverStyle, activeStyle } = getSkin(skin);
+
+    const buttonStyle = { ...baseStyle, ...buttonSize(size), ...buttonPosition(position), ...normalStyle, ...style };
 
     return (
-        <button type={type} style={buttonCSS}>
-            {children?children.map(child => (<span>{child}</span>)):null}
+        <button {...onHover(hoverStyle)} {...onActive(activeStyle)} style={buttonStyle} type={type}>
+            {children?<span style={textStyle}>{children}</span>:null}
             {icon!==''?<img src={getIcon}></img>:null}
         </button>
     )
 }
+
+export default Button;
+
+

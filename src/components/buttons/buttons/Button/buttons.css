@@ -1,6 +1,6 @@
 /* Global css that pertains to all buttons */
 
-:root {
+/* :root {
     --button-colour: var(--impact-yellow);
     --button-text: var(--impact-yellow);
     --hover-colour:	var(--ivory-blue);
@@ -82,7 +82,7 @@ button:active, .anchor-btn:active {
 
 .active {
     background-color: var(--hover-colour);
-}
+} */
 
 /* --------------- custom button properties ----------------------- */
 
