@@ -44,14 +44,14 @@ function createStatements(componentPaths){
 function createWriteData(path){
     const componentPaths = findComponentPaths(path)
     const { importStatement, exportStatement } = createStatements(componentPaths);
-    console.log(importStatement);
-    console.log(exportStatement);
     return importStatement +'\n\n'+ exportStatement;
 }
 
 // Writes index.js file to export all components.
 fs.writeFileSync(
     './src/index.js',
-    createWriteData('./src/components') +'\n \n'+ createWriteData('./src/hooks'),
+    createWriteData('./src/components') +'\n\n' +
+    createWriteData('./src/hooks') + '\n\n' +
+    createWriteData('./src/events'),
     'utf8'
 );
