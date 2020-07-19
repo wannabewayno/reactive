@@ -47,7 +47,7 @@ const getLightness = (max,min) => {
     return Math.decimal(lightness,3);
 }
   
-export default RGB2HSL = ( R, G, B ) => {
+export default function RGB2HSL( R, G, B ) {
     R = Math.decimal(R/255,4);
     G = Math.decimal(G/255,4);
     B = Math.decimal(B/255,4);

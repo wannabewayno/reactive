@@ -2,7 +2,7 @@ import extendMath from './mathExtension';
 //make math extensions available in this scope
 extendMath();
 
-export default HSL2RGB = (H,S,L) => {
+export default function HSL2RGB (H,S,L) {
     S /= 100;
     L /= 100;
 
