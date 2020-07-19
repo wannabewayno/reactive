@@ -8,22 +8,51 @@ export default class Colour {
         this.channels = channels;
         this.alpha = channels[3]? channels[3]:1
     }
+    //only get, can't set without converting
+    getType() { return this.type };
+    setType() { console.log("can't set type here, use convert() to change the type")}
+
+    getChannels() { return this.channels };
+    /**
+     * Set Channels by passing key:value pairs of channels to change
+     * @param {Object} channels - named channels with values to set
+     */
+    setChannels(channels) {
+        switch(this.type){
+            case'rgb':
+                const { r,R, g,G, b,B } = channels;
+                if(R|r) this.channels[0] = R?R:r;
+                if(G|g) this.channels[1] = G?G:g;
+                if(B|b) this.Channels[2] = B?B:b;
+            case'hsl':
+                const { h,H, s,S, l,L } = channels;
+                if(H|h) this.channels[0] = H?H:h;
+                if(S|s) this.channels[1] = S?S:s;
+                if(L|l) this.Channels[2] = L?L:l;
+            default: 
+                console.error("Can't set Colour channels, type is undefined")
+        }
+    };
+
+    getOpacity() { return this.alpha * 100 };
+    /**
+     * Set the opacity from transparent (0) to opaque (100);
+     * @param {Number} opacity - a number from 0 - 100 
+     */
+    setOpacity(opacity) { this.alpha = opacity/100 }
+
 
     /**
      * Turns a colour object into a CSSStyle string;
-     * @param  {Object} colour
-     * @param  {String} [colour.type] - colour format //? rgb|hsl
-     * @param  {Array}  [colour.channels] - values of each channel //? [255,40,113,1]
      * @return {String} - css colour string //? rgba(255,40,113,1)
      */
-    restructure() {
-
+    toString() {
         switch(type){
             case'rgb':
-                const [R,G,B] = channels;
+                const [R,G,B] = this.channels;
                 return `rgba(${R},${G},${B},${this.alpha})`
             case'hsl':
-                const [H,S,L] = channels;
+                const [H,S,L] = this.channels;
                 return `hsla(${H},${S}%,${L}%,${this.alpha})`
             default: 
                 return console.warn('Error: unpassable colour type');
@@ -52,5 +81,9 @@ export default class Colour {
             default:
                 console.warn("convert doesn't recognise this as a colour to convert to")
         }
+    }
+
+    clone(){
+        return new Colour(this.type,this.channels);
     }
 }
