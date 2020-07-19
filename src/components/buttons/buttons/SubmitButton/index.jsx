@@ -4,6 +4,6 @@ import Button from '..Button/index.jsx';
 export default function SubmitButton(props) {
 
     return (
-        <Button {...props, type='submit'}/>
+        <Button {...props} type='submit'/>
     )
 }
