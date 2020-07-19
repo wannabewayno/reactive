@@ -3,7 +3,7 @@ import './buttons.css';
 import buttonSize from './iconSize';
 import buttonPosition from './buttonPosition';
 import iconSize from './iconSize';
-import baseStyle from './style';
+import { baseStyle } from './style';
 
 function Button({ size='tiny', position='', icon='', skin='nude-button', type='button'}){
 

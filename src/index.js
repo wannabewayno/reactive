@@ -2,6 +2,7 @@ import Links from './components/buttons/Links/index.jsx';
 import Button from './components/buttons/buttons/Button/index.jsx';
 import CloseButton from './components/buttons/buttons/CloseButton/index.jsx';
 import SendButton from './components/buttons/buttons/SendButton/index.jsx';
+import SubmitButton from './components/buttons/buttons/SubmitButton/index.jsx';
 import OnOnSwitch from './components/buttons/switches/OnOnSwitch/index.jsx';
 import Switch from './components/buttons/switches/Switch/index.jsx';
 import Container from './components/containers/Container/index.jsx';
@@ -26,6 +27,7 @@ Links,
 Button,
 CloseButton,
 SendButton,
+SubmitButton,
 OnOnSwitch,
 Switch,
 Container,
@@ -44,7 +46,7 @@ SearchBar,
 Employee,
 Arctext
 }
- 
+
 import useComputedStyle from './hooks/useComputedStyle/index.jsx';
 import useLiftState from './hooks/useLiftState/index.jsx';
 
@@ -52,4 +54,13 @@ import useLiftState from './hooks/useLiftState/index.jsx';
 export {
 useComputedStyle,
 useLiftState
+}
+
+import onActive from './events/onActive/index.jsx';
+import onHover from './events/onHover/index.jsx';
+
+
+export {
+onActive,
+onHover
 }
