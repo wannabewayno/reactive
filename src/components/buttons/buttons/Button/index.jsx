@@ -1,11 +1,11 @@
 import React from 'react';
 import './buttons.css';
-import buttonSize from './iconSize';
-import buttonPosition from './buttonPosition';
-import iconSize from './iconSize';
-import { baseStyle } from './style';
+import buttonSize from './buttonSize.js';
+import buttonPosition from './buttonPosition.js';
+import iconSize from './iconSize.js';
+import { baseStyle } from './style.js';
 
-function Button({ size='tiny', position='', icon='', skin='nude-button', type='button'}){
+export default function Button({ size='tiny', position='', icon='', skin='nude-button', type='button'}){
 
     const buttonCSS = { ...baseStyle,...buttonSize(size), ...buttonPosition(position), ...getSkin(skin) };
 
@@ -16,7 +16,3 @@ function Button({ size='tiny', position='', icon='', skin='nude-button', type='b
         </button>
     )
 }
-
-export default Button;
-
-

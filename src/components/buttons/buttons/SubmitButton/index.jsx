@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '..Button/index.jsx';
+import Button from '../Button/index.jsx';
 
 export default function SubmitButton(props) {
 
