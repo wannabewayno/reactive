@@ -15,7 +15,7 @@ button, .anchor-btn, .btn {
     align-items: center;
     justify-content: center;
     flex-direction: row-reverse;
-    margin-top:0.5rem;
+    margin:0.5rem;
     padding:0.25rem;
     font-size: 100%;
     background-color: transparent;

@@ -2,15 +2,17 @@ import React from 'react';
 import './buttons.css';
 import buttonSize from './iconSize';
 import buttonPosition from './buttonPosition';
+import iconSize from './iconSize';
+import baseStyle from './style';
 
-function Button({ size = 'tiny', id = '', position = '', buttonText = '', style = 'nude-button', children }){
+function Button({ size='tiny', position='', icon='', skin='nude-button', type='button'}){
 
-    const CSS = { ...buttonSize(size), ...buttonPosition(position) };
+    const buttonCSS = { ...baseStyle,...buttonSize(size), ...buttonPosition(position), ...getSkin(skin) };
 
     return (
-        <button id={id} className={`${style}`} type="button" style={CSS}>
-            {buttonText ?<span className='btn-text'>{buttonText}</span>:undefined}
-            {children}
+        <button type={type} style={buttonCSS}>
+            {children?children.map(child => (<span>{child}</span>)):null}
+            {icon!==''?<img src={getIcon}></img>:null}
         </button>
     )
 }
