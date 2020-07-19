@@ -4,8 +4,8 @@ import buttonPosition from './buttonPosition.js';
 import iconSize from './iconSize';
 import { baseStyle, textStyle ,getSkin } from './styles/style';
 import getIcon from './icons';
-import onHover from '../../../../events/onHover'
-import onActive from '../../../../events/onActive'
+import onHover from '../../../../events/onHover/index.jsx'
+import onActive from '../../../../events/onActive/index.jsx'
 
 
 function Button({ size='tiny', position='', color='', icon='', skin='default', type='button', style={}, children}){
