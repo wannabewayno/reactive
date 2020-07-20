@@ -17,7 +17,7 @@ function Button({
     skin='default',
     type='button',
     style={},
-    onClick='',
+    onClick=()=>null,
     children
 })  {
 
