@@ -9,14 +9,30 @@ import onActive from '../../../../events/onActive/index.jsx';
 import './styles/clearFocus.css';
 
 
-function Button({ size='tiny', position='', color='', icon='', skin='default', type='button', style={}, children}){
+function Button({
+    size='tiny',
+    position='',
+    color='',
+    icon='',
+    skin='default',
+    type='button',
+    style={},
+    onClick='',
+    children
+})  {
 
     const { normalStyle, hoverStyle, activeStyle } = getSkin(skin,color);
 
     const buttonStyle = { ...baseStyle, ...buttonSize(size), ...buttonPosition(position), ...normalStyle, ...style };
 
     return (
-        <button {...onHover(hoverStyle)} {...onActive(activeStyle)} style={buttonStyle} type={type}>
+        <button
+            {...onHover(hoverStyle)}
+            {...onActive(activeStyle)}
+            style={buttonStyle}
+            type={type}
+            onClick={onClick}
+        >
             {children?<span style={textStyle}>{children}</span>:null}
             {icon!==''?<img src={getIcon}></img>:null}
         </button>
