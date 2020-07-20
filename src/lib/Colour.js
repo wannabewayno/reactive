@@ -47,7 +47,7 @@ export default class Colour {
      * @return {String} - css colour string //? rgba(255,40,113,1)
      */
     toString() {
-        switch(type){
+        switch(this.type){
             case'rgb':
                 const [R,G,B] = this.channels;
                 return `rgba(${R},${G},${B},${this.alpha})`

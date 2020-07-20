@@ -1,24 +1,25 @@
 import destructureColour from '../../../../../lib/destructureColour.js';
 
 export default function defaultStyle(colourString) {
-
-    const baseColour = destructureColour(colourString);
-    const transparentBaseColour = baseColour.setOpacity(15);
+    
+    const colour = destructureColour(colourString);
+    const baseColour = colour.toString();
 
     const normalStyle = {
-        backgroundColor:transparentBaseColour.toString(),
-        borderColour:baseColour.toString()
+        color:baseColour,
+        borderColor:baseColour
     }
 
     const hoverStyle = {
         color:'#FFF',
-        backgroundColor:baseColour.toString()
+        backgroundColor:baseColour
     }
 
     const activeStyle = {
+        outline:'none',
         transform:'scale(0.95)'
     }
 
-    return { baseStyle, hoverStyle, activeStyle }
+    return { normalStyle, hoverStyle, activeStyle }
 }
 

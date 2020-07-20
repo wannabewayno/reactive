@@ -7,14 +7,14 @@ import Colour from './Colour.js'
 export default function destructureColour(colourString) {
 
     //gaurd clause for empty strings
-    if(colourString===''){
+    if(colourString === ''){
         return
     }
 
     let type;
     let channels;
 
-    if(colourString.indexOf('#')!==-1){
+    if(colourString.indexOf('#') !== -1){
         type = 'rgb'
         const regex = (colourString.length - 1) === 6 ? new RegExp('\w\w','g') : new RegExp('\w','g')
         channels = (colourString.match(regex)).map(hex => parseInt(hex,16))

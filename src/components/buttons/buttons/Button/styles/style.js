@@ -25,8 +25,9 @@ export const textStyle = {
 }
 
 export function getSkin(skin,color,backgroundColor){
+    if(color === '') color = 'rgb(125,125,125)'
     switch(skin){
-        case'': return defaultStyle(color);
+        case'default': return defaultStyle(color);
     }
 }
 
