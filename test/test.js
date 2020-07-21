@@ -1,8 +1,7 @@
-import HSL2RGB from './HSL2RGB.js';
-import RGB2HSL from './RGB2HSL.js';
+const HSL2RGB = require('./HSL2RGB');
+const RGB2HSL = require('./RGB2HSL');
 
-
-export default class Colour {
+class Colour {
     constructor(type, channels){
         this.type = type;
         this.channels = channels;
@@ -12,7 +11,7 @@ export default class Colour {
     getType() { return this.type };
     setType() { console.log("can't set type here, use convert() to change the type")}
 
-    getChannels() { return this.channels };
+    getChannels() { return [...this.channels] };
 
     /**
      * Set Channels by passing key:value pairs of channels to change
@@ -25,11 +24,13 @@ export default class Colour {
                 if(R|r) this.channels[0] = R?R:r;
                 if(G|g) this.channels[1] = G?G:g;
                 if(B|b) this.channels[2] = B?B:b;
+                break;
             case'hsl':
                 const { h,H, s,S, l,L } = channels;
                 if(H|h) this.channels[0] = H?H:h;
                 if(S|s) this.channels[1] = S?S:s;
                 if(L|l) this.channels[2] = L?L:l;
+                break;
             default: 
                 console.error("Can't set Colour channels, type is undefined")
         }
@@ -44,9 +45,13 @@ export default class Colour {
     setOpacity(opacity) { this.alpha = opacity/100 }
 
     darken(percentage){
+        console.log('BEFORE CONVERTING:',this.getChannels());
         if(this.type === 'rgb') this.convert('hsl');
+        console.log('AFTER CONVERTING',this.getChannels());
         let [H,S,L] = this.getChannels();
+        console.log(`H:${H}`,`S:${S}`,`L:${L}`);
         L -= percentage;
+        console.log('We just tried to change L');
         if(L < 0 ) L = 0;
         this.setChannels({ L });
     }
@@ -82,7 +87,7 @@ export default class Colour {
      * @param  {String} convertTo - convert to format? //? rgb|hsl
      */
     convert(convertTo){
-
+        console.log(typeof(convertTo));
         // if same colour type, do nothing 🤷
         if(this.type === convertTo){
             return 
@@ -92,9 +97,11 @@ export default class Colour {
             case'rgb':
                 this.channels = HSL2RGB(...this.channels);
                 this.type = 'rgb'
+                break;
             case'hsl':
                 this.channels = RGB2HSL(...this.channels);
                 this.type = 'hsl'
+                break;
             default:
                 console.warn("convert doesn't recognise this as a colour to convert to")
         }
@@ -104,3 +111,13 @@ export default class Colour {
         return new Colour(this.type,this.channels);
     }
 }
+
+const baseColour = new Colour('rgb',[125,125,125]);
+console.log('BaseColour:',baseColour);
+console.log('-----------------------------');
+const baseColourClone = baseColour.clone()
+console.log('BaseColourClone:',baseColourClone);
+console.log('-----------------------------');
+console.log('NOW WE ATTEMPT TO DARKEN');
+baseColourClone.darken(5);
+console.log(baseColourClone);
