@@ -12,3 +12,4 @@ webpack.production.config.js
 ./src/lib
 ./src/events
 ./src/icons
+./src/test

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, cloneElement, useRef } from 'react';
-import { Button, useComputedStyle } from '@wannabewayno/reactor'
-
+import Button from '../../clickElements/buttons/Button/index.jsx'
+import useComputedStyle from '../../../hooks/useComputedStyle/index.jsx'
+import destructureUnit from '../../../lib/destructureUnit'
 
 export default function ShowOnClick({ children, showOnMount, provideButton=true, liftUpState, transitionTime }) {
 
@@ -10,6 +11,8 @@ export default function ShowOnClick({ children, showOnMount, provideButton=true,
 
     let [ showThisOnClick, userButton ] = children
 
+    //destructure transisitionTime
+    transitionTime = destructureUnit(transitionTime);
 
     // Set up refs
     const dropdown = useRef();
@@ -89,3 +92,4 @@ export default function ShowOnClick({ children, showOnMount, provideButton=true,
 
     )
 }
+
