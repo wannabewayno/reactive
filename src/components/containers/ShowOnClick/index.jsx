@@ -1,0 +1,91 @@
+import React, { useState, useEffect, cloneElement, useRef } from 'react';
+import { Button, useComputedStyle } from '@wannabewayno/reactor'
+
+
+export default function ShowOnClick({ children, showOnMount, provideButton=true, liftUpState, transitionTime }) {
+
+    if (!children) throw new Error("ShowOnClick doesn't have any content")
+    if (!Array.isArray(children)) children = [ children ];
+    if (children.length > 2) throw new Error('TOO MANY CHILDREN: ShowOnClick should only contain an element to show and a button')
+
+    let [ showThisOnClick, userButton ] = children
+
+
+    // Set up refs
+    const dropdown = useRef();
+    const elementToShow = useRef();
+
+
+    // clone the element and pass a ref into it
+    showThisOnClick = cloneElement(
+        // Element to clone
+        showThisOnClick,
+        //Props to add
+        {
+            ...showThisOnClick.props, 
+            ref:elementToShow
+        },
+        //any children
+    )
+
+    const [ isShown, setIsShown ] = useState(showOnMount)
+
+    function handleClick(){
+
+        if(isShown) { 
+            dropdown.current.style.height = '0'
+            setTimeout(() => {
+                setIsShown(false)
+            }, 1000)
+        } else {
+            setIsShown(true);
+        }
+    }
+
+    //if using liftUpState hook in parent, activate on mount
+    useEffect(() => {
+        if(liftUpState) liftUpState('showOnClickState',isShown,setIsShown)
+    } ,[])
+
+
+    // if the user didn't provide a button, set up a dummy button
+    if(!userButton && provideButton ) {
+
+        userButton = <Button size='small' skin='flat' onClick={handleClick} text='Show more'/>
+
+    } else if(!liftUpState){
+
+        // we need to configure the user's button with our custom trigger
+        const { props } = userButton
+        userButton = cloneElement(userButton, {...props, onClick:handleClick })
+    }
+
+    
+    useEffect(() => {
+        if(isShown){
+            const{ value, unit } = useComputedStyle(elementToShow,'height');
+            dropdown.current.style.height = value + unit
+        }
+    })
+    
+
+    function showElement(){
+        if(isShown){
+            return showThisOnClick
+        } else {
+            return null
+        }
+    }
+
+    return (
+        <div>
+            <div ref={dropdown} style={{ transition:`all ${transitionTime} ease-in-out 0s`, position:'relative', height:'0', overflow:'hidden',}}>
+                {showElement()}
+            </div>  
+            <div>
+                {userButton? userButton : null}
+            </div>
+        </div>
+
+    )
+}
