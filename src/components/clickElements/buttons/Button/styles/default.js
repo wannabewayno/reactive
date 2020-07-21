@@ -15,6 +15,7 @@ export default function defaultStyle(colourString) {
     }
 
     const hoverStyle = {
+        cursor:'pointer',
         color:'#FFF',
         backgroundColor:baseColour
     }
