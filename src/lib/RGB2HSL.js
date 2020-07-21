@@ -1,4 +1,5 @@
-require('./mathExtension.js');
+import mathExtension from './mathExtension';
+mathExtension();
 
 const getHue = ( R, G, B, max, chroma) => {
     let hue;
