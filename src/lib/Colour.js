@@ -13,6 +13,7 @@ export default class Colour {
     setType() { console.log("can't set type here, use convert() to change the type")}
 
     getChannels() { return this.channels };
+
     /**
      * Set Channels by passing key:value pairs of channels to change
      * @param {Object} channels - named channels with values to set
@@ -35,12 +36,28 @@ export default class Colour {
     };
 
     getOpacity() { return this.alpha * 100 };
+
     /**
      * Set the opacity from transparent (0) to opaque (100);
      * @param {Number} opacity - a number from 0 - 100 
      */
     setOpacity(opacity) { this.alpha = opacity/100 }
 
+    darken(percentage){
+        if(this.type === 'rgb') this.convert('hsl');
+        const [H,S,L] = this.getChannels();
+        L -= percentage/100;
+        if(L < 0 ) L = 0;
+        this.setChannels({ L });
+    }
+
+    lighten(percentage){
+        if(this.type === 'rgb') this.convert('hsl');
+        const [H,S,L] = this.getChannels();
+        L += percentage/100;
+        if(L > 1) L = 1;
+        this.setChannels({ L });
+    }
 
     /**
      * Turns a colour object into a CSSStyle string;
