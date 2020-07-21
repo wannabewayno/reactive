@@ -12,7 +12,7 @@ export default class Colour {
     getType() { return this.type };
     setType() { console.log("can't set type here, use convert() to change the type")}
 
-    getChannels() { return this.channels };
+    getChannels() { return [...this.channels] };
 
     /**
      * Set Channels by passing key:value pairs of channels to change
