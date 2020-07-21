@@ -4,7 +4,9 @@ export default function flatStyle(colourString) {
     
     const colour = destructureColour(colourString);
     const baseColour = colour.clone().toString();
-    const hoverColour = colour.clone().darken(5).toString()
+    const hoverColourObject = colour.clone()
+    hoverColourObject.darken(5)
+    const hoverColour = hoverColourObject.toString(); 
     
 
     const normalStyle = {
