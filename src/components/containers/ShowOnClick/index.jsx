@@ -39,7 +39,7 @@ export default function ShowOnClick({ children, showOnMount, provideButton=true,
             dropdown.current.style.height = '0'
             setTimeout(() => {
                 setIsShown(false)
-            }, 1000)
+            }, transitionTime.value())
         } else {
             setIsShown(true);
         }
@@ -82,7 +82,7 @@ export default function ShowOnClick({ children, showOnMount, provideButton=true,
 
     return (
         <div>
-            <div ref={dropdown} style={{ transition:`all ${transitionTime} ease-in-out 0s`, position:'relative', height:'0', overflow:'hidden',}}>
+            <div ref={dropdown} style={{ transition:`all ${transitionTime.css()} ease-in-out 0s`, position:'relative', height:'0', overflow:'hidden',}}>
                 {showElement()}
             </div>  
             <div>
