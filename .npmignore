@@ -11,3 +11,4 @@ webpack.production.config.js
 ./src/hooks
 ./src/lib
 ./src/events
+./src/icons

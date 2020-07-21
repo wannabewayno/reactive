@@ -1,7 +1,7 @@
 import React from 'react';
 // import './style.css';
-import SendButton from '../../buttons/buttons/SendButton/index.jsx';
-import CloseButton from  '../../buttons/buttons/CloseButton/index.jsx';
+import SendButton from '../../clickElements/buttons/SendButton/index.jsx';
+import CloseButton from  '../../clickElements/buttons/CloseButton/index.jsx';
 import EnvelopeLid from './EnvelopeLid/index.jsx';
 import EnvelopeBody from './EnvelopeBody/index.jsx';
 

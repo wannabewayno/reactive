@@ -1,4 +1,4 @@
-export default function buttonPosition(position){
+export default function position(position){
     const absolute = {
         margin:'0.75rem 0.75rem', 
         position: 'absolute',

@@ -1,24 +1,23 @@
 import React from 'react';
-import buttonSize from './buttonSize.js';
-import buttonPosition from './buttonPosition.js';
-import iconSize from './iconSize';
+import buttonSize from '../../../../lib/size.js';
+import buttonPosition from '../../../../lib/position.js';
 import { baseStyle, textStyle ,getSkin } from './styles/style.js';
-import getIcon from './icons';
+import getIcon from '../../../../icons';
 import onHover from '../../../../events/onHover/index.jsx';
 import onActive from '../../../../events/onActive/index.jsx';
 import './styles/clearFocus.css';
 
 
-function Button({
+export default function Button({
     size='tiny',
     position='',
     color='',
-    icon='',
+    icon,
+    text,
     skin='default',
     type='button',
     style={},
-    onClick=()=>null,
-    children
+    onClick=() => null,
 })  {
 
     const { normalStyle, hoverStyle, activeStyle } = getSkin(skin,color);
@@ -33,12 +32,8 @@ function Button({
             type={type}
             onClick={onClick}
         >
-            {children?<span style={textStyle}>{children}</span>:null}
-            {icon!==''?<img src={getIcon}></img>:null}
+            {text?<span style={textStyle}>{text}</span>:null}
+            {icon?<img src={getIcon(icon)}></img>:null}
         </button>
     )
 }
-
-export default Button;
-
-

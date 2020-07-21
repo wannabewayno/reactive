@@ -14,7 +14,7 @@ function initializeStepRadius(baseRadius, stepValue, bracket){
  * @param {String} - natural language for the size of a button
  *                  ? accepts => tiny|xx-small|x-small|small|medium|large|x-large|xx-large|huge 
  */
-export default function buttonSize(size){
+export default function size(size){
 
     const stepRadius = initializeStepRadius(1.5,1,6);
     const sizeStyle = fontSize => ({ fontSize, borderRadius:stepRadius(fontSize) })

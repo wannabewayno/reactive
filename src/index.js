@@ -1,10 +1,10 @@
-import Links from './components/buttons/Links/index.jsx';
-import Button from './components/buttons/buttons/Button/index.jsx';
-import CloseButton from './components/buttons/buttons/CloseButton/index.jsx';
-import SendButton from './components/buttons/buttons/SendButton/index.jsx';
-import SubmitButton from './components/buttons/buttons/SubmitButton/index.jsx';
-import OnOnSwitch from './components/buttons/switches/OnOnSwitch/index.jsx';
-import Switch from './components/buttons/switches/Switch/index.jsx';
+import Button from './components/clickElements/buttons/Button/index.jsx';
+import CloseButton from './components/clickElements/buttons/CloseButton/index.jsx';
+import SendButton from './components/clickElements/buttons/SendButton/index.jsx';
+import SubmitButton from './components/clickElements/buttons/SubmitButton/index.jsx';
+import Link from './components/clickElements/links/Link/index.jsx';
+import OnOnSwitch from './components/clickElements/switches/OnOnSwitch/index.jsx';
+import Switch from './components/clickElements/switches/Switch/index.jsx';
 import Container from './components/containers/Container/index.jsx';
 import DropDownContainer from './components/containers/DropDownContainer/index.jsx';
 import Footer from './components/containers/Footer/index.jsx';
@@ -23,11 +23,11 @@ import Arctext from './components/typography/Arctext/index.jsx';
 
 
 export {
-Links,
 Button,
 CloseButton,
 SendButton,
 SubmitButton,
+Link,
 OnOnSwitch,
 Switch,
 Container,

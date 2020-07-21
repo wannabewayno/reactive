@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import Link from '../../buttons/Links/index.jsx';
+import Link from '../../clickElements/links/Link/index.jsx';
 
 function LinkContainer({ links }){
     
