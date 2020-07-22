@@ -25,11 +25,13 @@ export default class Colour {
                 if(R|r) this.channels[0] = R?R:r;
                 if(G|g) this.channels[1] = G?G:g;
                 if(B|b) this.channels[2] = B?B:b;
+                break;
             case'hsl':
                 const { h,H, s,S, l,L } = channels;
                 if(H|h) this.channels[0] = H?H:h;
                 if(S|s) this.channels[1] = S?S:s;
                 if(L|l) this.channels[2] = L?L:l;
+                break;
             default: 
                 console.error("Can't set Colour channels, type is undefined")
         }
@@ -92,9 +94,11 @@ export default class Colour {
             case'rgb':
                 this.channels = HSL2RGB(...this.channels);
                 this.type = 'rgb'
+                break;
             case'hsl':
                 this.channels = RGB2HSL(...this.channels);
                 this.type = 'hsl'
+                break;
             default:
                 console.warn("convert doesn't recognise this as a colour to convert to")
         }
