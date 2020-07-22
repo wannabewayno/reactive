@@ -276,3 +276,5 @@ const seconds = new Unit(1,'s');
 console.log(seconds.css());
 
 seconds.convert('ms');
+
+module.exports = Unit;
