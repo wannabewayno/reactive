@@ -8,11 +8,17 @@ import { cloneElement, Children } from 'react'
 const liftUpAll = (children,handleliftup) => {
    return Children.toArray(children).map(child => {
         const { props:{ children } } = child;
-
-        if (Array.isArray(children)) {
-            return cloneElement(child, { handleliftup:handleliftup },...liftUpAll(children, handleliftup))
-
-        } else if (typeof(child.type) !== 'string'){
+       
+        if(children){
+            if(Array.isArray(children) && typeof(children)==='object') {
+                return cloneElement(child, { handleliftup:handleliftup },...liftUpAll(children, handleliftup))
+            }
+            if(!Array.isArray(children) && typeof(children)==='object') {
+                return cloneElement(child, { handleliftup:handleliftup },...liftUpAll(children, handleliftup))
+            }
+        }
+    
+        if (typeof(child.type) !== 'string'){
             return cloneElement(child,{ handleliftup:handleliftup })
         }
 
