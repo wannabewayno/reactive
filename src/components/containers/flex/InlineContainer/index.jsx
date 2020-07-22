@@ -11,7 +11,7 @@ import inlineStyle from './style.js';
  * @param {String}  [props.gap='0px']       - Horizontal gap between elements
  * @param {String}  [props.minWidth='0px']  - Breakpoint Width to convert to vertical list  
  */
-const InlineContainer = ({ children, gap='0px', minWidth='0px' }) => {
+const InlineContainer = ({ children, gap='0px', minWidth='0px', style }) => {
 
     const length = children.length;
 
@@ -19,6 +19,7 @@ const InlineContainer = ({ children, gap='0px', minWidth='0px' }) => {
         ...inlineStyle,
         gridTemplateColumns: `repeat(auto-fill, minmax( min(max(${minWidth}, calc(${100/length}% - ${gap})),100%), 1fr))`,
         gap: gap,
+        ...style,
     }
 
     return (

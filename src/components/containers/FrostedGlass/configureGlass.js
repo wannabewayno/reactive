@@ -35,7 +35,7 @@ function getProperty(property, propertyMap, numberCallBack) {
 export default function configureGlass(shadow, backgroundColor, blur, style) {
 
     if (!backgroundColor) backgroundColor = 'rgba(255,255,255,0.5)'
-    const backdropFilter = getProperty(blur,blurMap, blur => `blur(${blur.toString()})`);
+    const backdropFilter = getProperty(blur,blurMap, blur => `blur(${blur}px)`);
     const boxShadow = getProperty(shadow,shadowMap,shadow => shadow);
 
     return { 

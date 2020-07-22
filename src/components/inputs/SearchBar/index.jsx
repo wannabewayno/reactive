@@ -1,8 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import './style.css';
+import { imgStyle, inputStyle, labelBox, labelStyle, containerStyle } from './style.js'
 import magnifyingGlass from './magnifying-glass.png';
 
-const SearchBar = ({ name, handleliftup, backgroundColor }) => {
+export default function SearchBar({
+    icon,
+    name,
+    placeholder='search...',
+    backgroundColor='rgb(125,125,125)',
+    handleliftup,
+    labelColor,
+    inputBGColor,
+    inputColor,
+    container={},
+    label={},
+    input={},
+}) {
     
     if (!handleliftup){
         handleliftup = () => console.warn(
@@ -19,7 +31,7 @@ const SearchBar = ({ name, handleliftup, backgroundColor }) => {
     }
 
     useEffect(()=>{
-        // makes searchValue available to it's container
+        // makes searchValue available to FormContainer
         handleliftup({stateName:name.id,value:searchValue})
         // eslint-disable-next-line react-hooks/exhaustive-deps
         return () => handleliftup({stateName:name.id,toDelete:true})
@@ -28,20 +40,18 @@ const SearchBar = ({ name, handleliftup, backgroundColor }) => {
     [searchValue])
 
     return(
-        <div className='search-bar'>
-            {name.toDisplay?<label>{name.display}</label>:null}
+        <div style={{...containerStyle, ...container}}>
             <input 
                 type='text'
                 value={searchValue}
-                placeholder="search..."
+                placeholder={placeholder}
                 onChange={event => handleSearchInput(event)}
-                style={{ border: `1px solid ${backgroundColor}`}}
+                style={{ borderColor:backgroundColor,...inputStyle, backgroundColor:inputBGColor, color:inputColor, ...input}}
             />
-            <div style={{ backgroundColor }}>
-                <img src={magnifyingGlass} alt="search-icon"/>
+            <div style={{...labelBox, backgroundColor, borderColor:backgroundColor }}>
+                {name.toDisplay?<label style={{...labelStyle, color:labelColor,...label}}>{name.display}</label>:null}
+                {icon?<img src={magnifyingGlass} alt="search-icon" style={imgStyle}/>:null}
             </div>
         </div>
     );
 }
-
-export default SearchBar;
