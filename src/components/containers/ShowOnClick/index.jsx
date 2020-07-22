@@ -33,17 +33,6 @@ export default function ShowOnClick({ children, showOnMount, provideButton=true,
 
     const [ isShown, setIsShown ] = useState(showOnMount)
 
-    function handleClick(){
-
-        if(isShown) { 
-            dropdown.current.style.height = '0'
-            setTimeout(() => {
-                setIsShown(false)
-            }, transitionTime.value())
-        } else {
-            setIsShown(true);
-        }
-    }
 
     //if using liftUpState hook in parent, activate on mount
     useEffect(() => {
@@ -66,11 +55,22 @@ export default function ShowOnClick({ children, showOnMount, provideButton=true,
     
     useEffect(() => {
         if(isShown){
-            const{ value, unit } = useComputedStyle(elementToShow,'height');
-            dropdown.current.style.height = value + unit
+            const height = useComputedStyle(elementToShow,'height');
+            dropdown.current.style.height = height.css()
         }
     })
     
+    function handleClick(){
+
+        if(isShown) { 
+            dropdown.current.style.height = '0'
+            setTimeout(() => {
+                setIsShown(false)
+            }, transitionTime.value())
+        } else {
+            setIsShown(true);
+        }
+    }
 
     function showElement(){
         if(isShown){
